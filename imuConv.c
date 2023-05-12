@@ -20,9 +20,9 @@
 #define GYRO_SCALE  250.0/32767.0
 
 
-#define GYRO_X_OFFSET -116.549//61.98
-#define GYRO_Y_OFFSET 56.346//27.80
-#define GYRO_Z_OFFSET -12.395//54.97
+#define GYRO_X_OFFSET -116.549
+#define GYRO_Y_OFFSET 56.346
+#define GYRO_Z_OFFSET -12.395
 
 /*  
 #define GYRO_X_OFFSET 61.98
@@ -138,8 +138,9 @@ int main(int argc, char** argv){
         eulers[2] = imu.orientation.yaw*180*M_1_PI;
 
         snprintf(sendStr, STR_MAX_LEN, 
-                 "Q%f,%f,%f,%fE\n",
-                 quat[0],quat[1],quat[2],quat[3]);
+                 "Q%f,%f,%f,%fE%f,%f,%f\n"
+                 quat[0],quat[1],quat[2],quat[3],
+                 eulers[0],eulers[1],eulers[2]);
 
         write(connfd, sendStr, strlen(sendStr));
 
