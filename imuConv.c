@@ -138,7 +138,7 @@ int main(int argc, char** argv){
         eulers[2] = imu.orientation.yaw*180*M_1_PI;
 
         snprintf(sendStr, STR_MAX_LEN, 
-                 "Q%f,%f,%f,%fE%f,%f,%f\n"
+                 "Q%f,%f,%f,%fE%f,%f,%f\n",
                  quat[0],quat[1],quat[2],quat[3],
                  eulers[0],eulers[1],eulers[2]);
 
